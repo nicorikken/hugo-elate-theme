@@ -11,7 +11,7 @@
 				</div>
 			</div>
 			<div class="row">
-			{{ range .Site.Params.about.item }}
+      {{ range $index, $element := .Site.Params.about.item }}
 				<div class="col-md-4">
 					<div class="fh5co-person text-center to-animate">
 						<figure><img src="images/{{ .img }}" alt="{{ .alt }}"></figure>
@@ -25,7 +25,10 @@
 						</ul>
 					</div>
 				</div>
-			{{ end }}
+      {{if mod $index 3 | eq 2}}
+      </div><div class="row margin-top-20">
+      {{ end }}
+      {{ end }}
 			</div>
 		</div>
 	</section>
